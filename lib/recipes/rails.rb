@@ -51,7 +51,7 @@ namespace :rails do
   namespace :deploy do
     desc "Deploy Rails configuration files"
     task :config, :roles => :app do
-      run "for file in #{shared_path}/config/*.yml; do cp ${file} #{latest_release}/config/; done"
+      run "for file in #{shared_path}/config/*.yml; do cp ${file} #{latest_release}/config/; done || echo 'no .yml files'"
     end
 
     desc "Snapshot database. Snapshot location specified by dbpath=<path>"
